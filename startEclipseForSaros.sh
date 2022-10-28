@@ -22,6 +22,7 @@ if [ ! $USER ]; then
   	echo "You must specify the userName used when starting eclipse202209forsaros1"
 else
 cd eclipse202209forsaros1
+${CONTAINERRUNTIME} run --rm -ti --privileged  --ipc=host \
  --env="QT_X11_NO_MITSHM=1"\
  --env="NO_AT_BRIDGE=1"\
  -e DISPLAY=$DISPLAY \

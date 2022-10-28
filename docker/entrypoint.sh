@@ -15,6 +15,8 @@ firstRun(){
 	chmod +x ~/workspace/saros-eclipse/development/setupProjects.sh
 	~/workspace/saros-eclipse/development/setupProjects.sh ~/workspace
 	
+	~/workspace/saros/gradlew prepareEclipse
+	
 	runInstaller	
 	
 	chmod +x ~/workspace/saros-eclipse/development/postInstaller.sh

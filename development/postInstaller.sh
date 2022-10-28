@@ -12,7 +12,6 @@ start(){
 }
 
 changeUserInContexts(){
-	find /home/$USER/workspace/saros-eclipse/oomph/Servers/ -type f -exec sed -i -e 's/olov/'"$USER"'/g' {} \;
 	find /home/$USER/workspace/saros-eclipse/eclipse/ -type f -exec sed -i -e 's/olov/'"$USER"'/g' {} \;
 }
 
