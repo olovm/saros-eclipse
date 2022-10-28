@@ -23,10 +23,6 @@ createDirectories(){
   	mkdir $INSTALLDIR/workspace
  	mkdir $PARENTDIR/m2
   	mkdir $PARENTDIR/eclipseP2
-  	mkdir $PARENTDIR/sharedArchive
-  	mkdir $PARENTDIR/sharedArchive/systemOne
-  	mkdir $PARENTDIR/sharedArchive/alvin
-  	mkdir $PARENTDIR/sharedArchive/diva
 }
 	
 changeAndCopyScripts(){
@@ -56,16 +52,8 @@ createGitConfigFile(){
 	touch $PARENTDIR/.gitconfig
 }
 
-createArchiveReadableFile(){
-	rm $PARENTDIR/archiveReadable
-	touch $PARENTDIR/archiveReadable.sh
-	echo "docker exec -u 0 eclipse202209forsaros1 bindfs --map=root/$USER:@root/@$USER /tmp/sharedArchive/ /tmp/sharedArchiveReadable/" > $PARENTDIR/archiveReadable.sh
-	chmod +x $PARENTDIR/archiveReadable.sh
-}
-
 if [ ! -d $INSTALLDIR ]; then
 	createDirectories
 	changeAndCopyScripts
 	createGitConfigFile
-	createArchiveReadableFile
 fi
