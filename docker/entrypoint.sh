@@ -29,7 +29,7 @@ runInstaller(){
 
 if [ ! -d ~/workspace/saros-eclipse ]; then
   	firstRun
-elif [ ! -d ~/eclipseforsaros ]; then
+elif [ ! -d ~/eclipse/eclipseforsaros ]; then
 	runInstaller
 else
 	~/eclipseforsaros/eclipse
