@@ -36,6 +36,7 @@ RUN dnf clean all && \
   nano \
   lsof \
   tar \
+  unzip \
   less \
   htop \
   docker \
@@ -62,6 +63,9 @@ RUN touch /home/$user/.gitconfig
 RUN chown $user:$user /home/$user -R
 
 RUN wget -O - https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%2B8/OpenJDK11U-jdk_x64_linux_hotspot_11.0.17_8.tar.gz  | tar zxf - -C /opt/
+RUN wget -q -O tmp.zip https://services.gradle.org/distributions/gradle-7.5.1-bin.zip && unzip tmp.zip -d /opt/ && rm tmp.zip -f
+RUN export PATH=/usr/local/gradle/bin:$PATH
+
 RUN chown $user:$user /opt/ -R
 
 RUN npm install -g karma-cli

@@ -5,17 +5,18 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname $SCRIPT)
 
 start(){
+	installGradle;
 	runGradlew;
+}
+
+installGradle() {
+	mkdir /opt/gradle
 }
 
 runGradlew() {
 	echo " "
 	echo "Trying to run gradlew:"
 	echo " "
-	echo "clone using:"
-	echo "tempRepository: $tempRepository"
-	echo "tempProjectName: $tempProjectName"
-	
 	cd $workspaceDir/saros
 	./gradlew prepareEclipse
 	cd ~
