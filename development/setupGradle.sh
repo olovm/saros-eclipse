@@ -5,7 +5,7 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname $SCRIPT)
 
 start(){
-	addAllRepositories;
+	runGradlew;
 }
 
 runGradlew() {
