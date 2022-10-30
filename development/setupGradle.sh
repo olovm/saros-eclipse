@@ -17,7 +17,7 @@ runGradlew() {
 	echo "tempProjectName: $tempProjectName"
 	
 	cd $workspaceDir
-	gradlew prepareEclipse
+	./gradlew prepareEclipse
 	cd ~
 }
 
