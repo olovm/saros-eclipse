@@ -62,8 +62,8 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
-      value="2021-03"
-      defaultValue="2021-03"
+      value="2022-09"
+      defaultValue="2022-09"
       storageURI="scope://Workspace"/>
   <setupTask
       xsi:type="setup.p2:P2Task">
@@ -572,8 +572,10 @@
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-11"
-      location="${jre.location-11}"
+      location="/opt/jdk-11.0.17+8"
       name="JRE for JavaSE-11">
+    <jreLibrary
+        libraryPath="/opt/jdk-11.0.17+8"/>
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <stream name="master"
