@@ -27,7 +27,7 @@ runInstaller(){
 	~/eclipse-installer/eclipse-inst
 }
 
-if [ ! -d ~/workspace/saros ]; then
+if [ ! -d ~/workspace/saros-eclipse ]; then
   	firstRun
 elif [ ! -d ~/eclipseforsaros ]; then
 	runInstaller

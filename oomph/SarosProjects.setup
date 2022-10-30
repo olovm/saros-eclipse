@@ -14,7 +14,7 @@
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-17"
-      location="${jre.location-17}"
+      location="/usr/lib/jvm/java-17-openjdk"
       name="JRE for JavaSE-17">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
