@@ -33,5 +33,5 @@ if [ ! -d ~/workspace/saros-eclipse ]; then
 elif [ ! -d ~/eclipse/eclipseforsaros ]; then
 	runInstaller
 else
-	~/eclipseforsaros/eclipse
+	~/eclipse/eclipseforsaros/eclipse
 fi
