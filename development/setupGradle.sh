@@ -16,7 +16,7 @@ runGradlew() {
 	echo "tempRepository: $tempRepository"
 	echo "tempProjectName: $tempProjectName"
 	
-	cd $workspaceDir
+	cd $workspaceDir/saros
 	./gradlew prepareEclipse
 	cd ~
 }
