@@ -40,6 +40,7 @@ RUN dnf clean all && \
   less \
   htop \
   docker \
+  java-11-openjdk java-11-openjdk-devel \
   java-17-openjdk java-17-openjdk-devel \
   java-latest-openjdk java-latest-openjdk-devel \ 
   java-latest-openjdk-javadoc java-latest-openjdk-javadoc-zip \

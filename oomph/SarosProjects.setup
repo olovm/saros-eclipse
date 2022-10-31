@@ -15,7 +15,8 @@
       xsi:type="jdt:JRETask"
       version="JavaSE-17"
       location="/usr/lib/jvm/java-17-openjdk"
-      name="JRE for JavaSE-17">
+      name="JRE for JavaSE-17"
+      executionEnvironmentDefault="false">
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <setupTask
@@ -573,9 +574,19 @@
       xsi:type="jdt:JRETask"
       version="JavaSE-11"
       location="/opt/jdk-11.0.17+8"
-      name="JRE for JavaSE-11">
+      name="JRE for JavaSE-11 temurin11"
+      executionEnvironmentDefault="false">
     <jreLibrary
         libraryPath="/opt/jdk-11.0.17+8"/>
+    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="jdt:JRETask"
+      version="JavaSE-11"
+      location="/usr/lib/jvm/java-11-openjdk"
+      name="JRE for JavaSE-11">
+    <jreLibrary
+        libraryPath="/usr/lib/jvm/java-11-openjdk"/>
     <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
   </setupTask>
   <stream name="master"
