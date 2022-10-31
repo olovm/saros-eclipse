@@ -5,12 +5,7 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname $SCRIPT)
 
 start(){
-	installGradle;
 	runGradlew;
-}
-
-installGradle() {
-	mkdir /opt/gradle
 }
 
 runGradlew() {
