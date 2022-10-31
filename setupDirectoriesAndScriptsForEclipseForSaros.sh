@@ -23,6 +23,7 @@ createDirectories(){
   	mkdir $INSTALLDIR/workspace
  	mkdir $PARENTDIR/m2
   	mkdir $PARENTDIR/eclipseP2
+  	mkdir $PARENTDIR/gradle
 }
 	
 changeAndCopyScripts(){
