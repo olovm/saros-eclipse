@@ -569,6 +569,22 @@
           key="/instance/saros.eclipse/editor.annotation.contribution.enabled"
           value="false"/>
     </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.jdt.core">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.core/org.eclipse.jdt.core.javaFormatter"
+          value="com.google.googlejavaformat.java.GoogleJavaFormatter"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="org.eclipse.jdt.ui">
+      <setupTask
+          xsi:type="setup:PreferenceTask"
+          key="/instance/org.eclipse.jdt.ui/formatter_profile"
+          value="org.eclipse.jdt.ui.default.sun_profile"/>
+    </setupTask>
   </setupTask>
   <setupTask
       xsi:type="jdt:JRETask"
