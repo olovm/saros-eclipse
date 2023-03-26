@@ -42,6 +42,7 @@ ${CONTAINERRUNTIME} run --rm -ti --privileged --ipc=host\
  -v PARENTDIR/eclipseP2:/home/$USER/.p2\
  -v PARENTDIR/.gitconfig:/home/$USER/.gitconfig\
  -v PARENTDIR/ssh:/home/$USER/.ssh\
+ -v PARENTDIR/gradle:/home/$USER/.gradle\
  -e user=$USER\
  -e eclipsebranch=$ECLIPSEBRANCH\
  --network=eclipseForSarosNet\

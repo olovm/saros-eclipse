@@ -18,7 +18,6 @@ firstRun(){
 	chmod +x ~/workspace/saros-eclipse/development/setupGradle.sh
 	~/workspace/saros-eclipse/development/setupGradle.sh
 	
-	mkdir ~/eclipse/eclipseforsaros/dropins -P
 	wget https://github.com/google/google-java-format/releases/download/google-java-format-1.6/google-java-format-eclipse-plugin_1.6.0.jar -P ~/eclipse/eclipseforsaros/dropins 
 	 
 	
