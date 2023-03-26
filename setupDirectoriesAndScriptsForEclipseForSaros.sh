@@ -6,7 +6,7 @@ USER=$1
 SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname $SCRIPT)
 PARENTDIR="$(dirname "$BASEDIR")"
-INSTALLDIR=$PARENTDIR/eclipse202209forsaros1
+INSTALLDIR=$PARENTDIR/eclipse202303forsaros1
 TOPDIR="$(dirname "$PARENTDIR")"
 
 echo 
