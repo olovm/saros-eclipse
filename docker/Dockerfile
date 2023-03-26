@@ -66,7 +66,7 @@ RUN chown $user:$user /home/$user -R
 RUN wget -O - https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.17%2B8/OpenJDK11U-jdk_x64_linux_hotspot_11.0.17_8.tar.gz  | tar zxf - -C /opt/
 RUN wget -q -O tmp.zip https://services.gradle.org/distributions/gradle-7.5.1-bin.zip && unzip tmp.zip -d /opt/ && rm tmp.zip -f
 ENV PATH="${PATH}:/opt/gradle-7.5.1/bin"
-RUN ll -la /usr/lib/jvm
+RUN ls -la /usr/lib/jvm
 RUN alternatives --set java /usr/lib/jvm/java-11-openjdk/bin/java
 
 RUN chown $user:$user /opt/ -R
