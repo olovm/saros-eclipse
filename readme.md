@@ -1,20 +1,17 @@
-There is currently a problem with testng, run on branch testng740 as described under the heading 
-"Updating with a new non master version of eclipse dev environment" (can be run when doing a new install)
-
 # saros-eclipse
 saros-eclipse is a project to enable easy setup of an Eclipse install for Saros development, using Eclipse and Docker.</br>
 I am running this on linux so, change as needed for other platforms.
 
 ## Before you begin
 1. Make sure you have git and docker set up on your local machine
-2. Make a directory where you want everything installed /x/y/z/cora (/mnt/depot/cora)
+2. Make a directory where you want everything installed /x/y/z/saros (/mnt/depot/saros)
 3. cd to your new directory
 3. Clone this repository: `git clone https://github.com/olovm/saros-eclipse.git`
 
 
 
 ## Installing, runAll
-The runAll script will take you through the entire process of setting up a docker based development environment for Cora. It will go through all needed steps. </br>
+The runAll script will take you through the entire process of setting up a docker based development environment for Saros. It will go through all needed steps. </br>
 You can get your docker group id by running;
 `getent group docker`
 
@@ -28,7 +25,7 @@ This scrip will, run the following headers automatically
 
 ### Build docker image
 Automatically run by runAll<br>
-this will take some time as it downloads quite a few things, eclipse, tomcat, etc
+this will take some time as it downloads quite a few things, eclipse, etc
 
 ### Create directories on host 
 Automatically run by runAll<br>
@@ -42,19 +39,18 @@ Automatically run by runAll<br>
 
 #### Eclipse installation
 When the container starts for the first time will it run the installation part of entrypoint.sh. This will
-clone all Cora repositories, add other remotes to all of them, install needed npm karma in cora-jsclient and
-start the eclipse installer (oomph). </br>
+clone Saros repositories, add other remotes to all of them and start the eclipse installer (oomph). </br>
 **There are a few things that needs to be choosen in the installer:**
 
  1. You need to use the advanced mode 
  
  1. Browse for setup files for eclipse, /home/yourUserName/workspace/saros-eclipse/oomph/EclipseForSaros.setup (use the plussign to add)
- 2. Java 17+ VM, set it to: /usr/lib/jvm/**java-18-openjdk**
+ 2. Java 17+ VM, set it to: /usr/lib/jvm/**java-17-openjdk**
  
  next step
  
- 1. In next step browse for setup for projects, /home/yourUserName/workspace/saros-eclipse/oomph/CoraProjects.setup (use the plussign to add)
- 2. Make sure "Cora projects" are marked
+ 1. In next step browse for setup for projects, /home/yourUserName/workspace/saros-eclipse/oomph/SarosProjects.setup (use the plussign to add)
+ 2. Make sure "Saros projects" are marked
 
  next step
  
@@ -63,7 +59,7 @@ start the eclipse installer (oomph). </br>
  6. Fill in path for "Installation location": set it to /home/yourUserName/eclipse
  5. Choose Workspace location rule: "Located in the absolute folder location"
  6. Fill in path for "Workspace location": /home/yourUserName/workspace
- 7. Fill in path for "JRE 17 Location": /usr/lib/jvm/**java-18-openjdk**
+ 7. Fill in path for "JRE 17 Location": /usr/lib/jvm/**java-17-openjdk**
  
  next step
  
@@ -95,53 +91,6 @@ add </br>
 to first row</br>
 restart eclipse</br>
 
-Start the environment by running:</br>
-`./eclipseForSaros/startEclipseForSaros.sh`
-<br>
- **Do the following in the listed order to avoid problems!**
- 1. Go in under preferences and make sure the latest java is choosen as default jre
- 2. In project explorer, under the three little dots, deselect working sets
- 3. Mark all projects and refresh them, menu or F5 (this will make sure eclipse sees files in target folders)
- 4. Start and stop the servers (in server tab) in the following order:
-    1. Tomcat v10.0 systemOne
-    2. Tomcat v10.0 alvin
-    3. Tomcat v10.0 diva
- 5. Go under External Tools Configurations (play icon with toolbox) and run linkJsClientToTomcats
- 6. Go under External Tools Configurations (play icon with toolbox) and run copyMetadata
-
-
-### Start systemOne
-1. Go under External Tools Configurations (play icon with toolbox) and start the docker containers for development by running systemoneStartDevDockers 
-2. Start fitnesse, Go under Run Configurations (play icon) and start fitnesse
-2. Start the tomcat servers for systemOne
-3. See links section below to find the running system
-
-(or similar for Alvin or DiVA)
-
-## Links
-After starting the appropriate servers and containers from inside eclipse, the following will be exposed:
-
-### SystemOne
-[SystemOne web:http://localhost:38080/jsclient/theClient.html](http://localhost:38080/jsclient/theClient.html)<br>
-[Fitnesse:http://localhost:38090/fitnesse/FrontPage](http://localhost:38090/fitnesse/FrontPage)<br>
-[SystemOne REST:http://localhost:38080/systemone/rest/](http://localhost:38080/systemone/rest/)<br>
-[Solr:http://localhost:38983/solr/](http://localhost:38983/solr/)<br>
-[Karma:http://localhost:39876/](http://localhost:39876/)<br>
-
-### Alvin
-[Alvin web:http://localhost:38081/jsclient/theClient.html](http://localhost:38081/jsclient/theClient.html)<br>
-[Fitnesse:http://localhost:38091/fitnesse/FrontPage](http://localhost:38091/fitnesse/FrontPage)<br>
-[Alvin REST:http://localhost:38081/alvin/rest/](http://localhost:38081/alvin/rest/)<br>
-[Solr:http://localhost:38984/solr/](http://localhost:38984/solr/)<br>
-[Fedora Commons:http://localhost:38088/fedora/](http://localhost:38088/fedora/)<br>
-
-### DiVA
-[DiVA web:http://localhost:38082/jsclient/theClient.html](http://localhost:38082/jsclient/theClient.html)<br>
-[Fitnesse:http://localhost:38092/fitnesse/FrontPage](http://localhost:38092/fitnesse/FrontPage)<br>
-[DiVA REST:http://localhost:38082/diva/rest/](http://localhost:38082/diva/rest/)<br>
-[Solr:http://localhost:38985/solr/](http://localhost:38985/solr/)<br>
-[Fedora Commons:http://localhost:38089/fedora/](http://localhost:38089/fedora/)<br>
-
 # Commiting to github using token
 ## remove password 
  prefrences / security / secure storage / contents
@@ -157,59 +106,7 @@ https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-
 username: your normal username
 password: your token
 
-# Updating
-
-## Updating to a newer version of developed systems
-1. Set your username in .gitconfig found in the root catalog where you installed the system, do this
-from the host system as there currently seems to be some issue with setting information in the
-file from the docker side of things.<br>
-[user]<br>
-        name = yourusername<br>
-        email = user@organisation.org<br>
-2. Go under External Tools Configurations (play icon with toolbox), run fetchAllFromLSU
-3. Go under External Tools Configurations (play icon with toolbox), run mergeProjectsFromLSUMaster (confirm in console)
-3. Go under External Tools Configurations (play icon with toolbox), run mvnPomCleanInstallAllButDocker
-4. Go under External Tools Configurations (play icon with toolbox), run mvnPomCleanInstallDevDocker
-5. Rightclick any project, and choose, maven / update project... (or F5) select all projects and run
-6. Stop and start containers and tomcat servers.
-
-### Updating with a new non master version of eclipse dev environment
-1. cd to your eclipse install directory cd /x/y/z/cora/saros-eclipse
-2. do a git pull: git pull
-3. list remote branches: git ls-remote
-4. checkout latest branch: git checkout 201903_2
-5. cd up to cora directory: cd ..
-6. run: ./saros-eclipse/runAll.sh 1001 201903_2
-7. continue with installation
-
-# Other
-
-### Adding cert information for connection to Fedora Commons
-For alvin server go into the launch configuration / arguments under VM arguments  add<br>
--Djavax.net.ssl.trustStore="/home/olov/workspace/cora-docker-fedora/files/fedoraKeystore.jks" -Djavax.net.ssl.trustStorePassword="changeit"
-
-
-### Build all tags
-1. Go under External Tools Configurations (play icon with toolbox) and run checkOutLatestTagOfAllProjects
-2. Go under External Tools Configurations (play icon with toolbox) and run mvnPomCleanInstallAllButDocker 
-3. Go under External Tools Configurations (play icon with toolbox) and run checkOutMasterOfAllProjects
 
 ### For adding marketplace to oomph installer (note to self)
 https://stackoverflow.com/questions/47582157/eclipse-marketplace-plug-ins-silent-install
 Given a Marketplace install URL (https://marketplace.eclipse.org/marketplace-client-intro?mpc_install={ID}), construct the API URL as https://marketplace.eclipse.org/node/{ID}/api/p. Retrieve the XML file from that URL and look for the repository URL in the updateURL tag, and the available features in the ius tag. You'll need to append .feature.group to each IU feature listed
-
-### exporting data from connected databases
-connect to shell in devEnvironment:
-
-docker exec -it eclipse202303forsaros1 bash 
-
-to export data from running DiVA db run:
-pg_dump -U diva -h diva-cora-docker-postgresql -p 5432 -t organisation diva > ~/workspace/diva-cora-docker-postgresql/docker/data/exported.sql
-
-### Debugging FitNesse
-Add the following to the top of the page, then use remoteDebugging such as DivaFitnesseDebug to connect to it when testing.
-
-```
-!path {java.class.path}
-!define COMMAND_PATTERN {/usr/lib/jvm/java-18-openjdk/bin/java -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=8000 -cp %p %m}
-```

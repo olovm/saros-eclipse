@@ -21,6 +21,7 @@ firstRun(){
 	wget https://github.com/google/google-java-format/releases/download/google-java-format-1.6/google-java-format-eclipse-plugin_1.6.0.jar -P ~/eclipse/eclipseforsaros/dropins 
 	 
 	
+	cd ~/workspace/saros-eclipse/oomph
 	runInstaller	
 	
 	chmod +x ~/workspace/saros-eclipse/development/postInstaller.sh
