@@ -246,7 +246,7 @@
       <repository
           url="http://nodj.github.io/AutoDeriv/update"/>
       <repository
-          url="http://nodj.github.io/AutoDeriv/update"/>
+          url="https://files.pkg.jetbrains.space/kotlin/p/kotlin-eclipse/main/last/"/>
     </setupTask>
   </version>
   <version name="2022-09"
