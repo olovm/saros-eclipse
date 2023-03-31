@@ -226,19 +226,21 @@
       <requirement
           name="org.eclipse.linuxtools.docker.feature.feature.group"/>
       <requirement
-          name="saros.feature.feature.group"/>
-      <requirement
           name="de.jcup.jenkinseditor.feature.feature.group"/>
       <requirement
           name="net.nodj.AutoDerivFeature.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.feature.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.policy.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.weaving.feature.feature.group"/>
       <repository
           url="https://eclipse-uc.sonarlint.org"/>
       <repository
           url="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
       <repository
           url="http://spotbugs.github.io/eclipse/"/>
-      <repository
-          url="https://www.saros-project.org/update-site/eclipse"/>
       <repository
           url="https://de-jcup.github.io/update-site-eclipse-jenkins-editor/update-site/"/>
       <repository
@@ -452,19 +454,21 @@
       <requirement
           name="org.eclipse.linuxtools.docker.feature.feature.group"/>
       <requirement
-          name="saros.feature.feature.group"/>
-      <requirement
           name="de.jcup.jenkinseditor.feature.feature.group"/>
       <requirement
           name="net.nodj.AutoDerivFeature.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.feature.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.policy.feature.group"/>
+      <requirement
+          name="org.jetbrains.kotlin.weaving.feature.feature.group"/>
       <repository
           url="https://eclipse-uc.sonarlint.org"/>
       <repository
           url="https://de-jcup.github.io/update-site-eclipse-bash-editor/update-site/"/>
       <repository
           url="http://spotbugs.github.io/eclipse/"/>
-      <repository
-          url="https://www.saros-project.org/update-site/eclipse"/>
       <repository
           url="https://de-jcup.github.io/update-site-eclipse-jenkins-editor/update-site/"/>
       <repository
