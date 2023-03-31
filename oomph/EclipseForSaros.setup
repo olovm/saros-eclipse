@@ -245,6 +245,8 @@
           url="https://de-jcup.github.io/update-site-eclipse-jenkins-editor/update-site/"/>
       <repository
           url="http://nodj.github.io/AutoDeriv/update"/>
+      <repository
+          url="http://nodj.github.io/AutoDeriv/update"/>
     </setupTask>
   </version>
   <version name="2022-09"
