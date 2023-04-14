@@ -110,3 +110,23 @@ password: your token
 ### For adding marketplace to oomph installer (note to self)
 https://stackoverflow.com/questions/47582157/eclipse-marketplace-plug-ins-silent-install
 Given a Marketplace install URL (https://marketplace.eclipse.org/marketplace-client-intro?mpc_install={ID}), construct the API URL as https://marketplace.eclipse.org/node/{ID}/api/p. Retrieve the XML file from that URL and look for the repository URL in the updateURL tag, and the available features in the ius tag. You'll need to append .feature.group to each IU feature listed
+
+
+# Gradle
+## Note to self..
+enter docker:
+docker exec -it eclipse202303forsaros2 bash
+
+cd /home/yourUserName/workspace/saros
+
+show project structure:
+
+./gradlew -q projects
+
+./gradlew :saros.core:tasks
+./gradlew :saros.core:clean
+./gradlew :saros.core:build
+
+
+
+
