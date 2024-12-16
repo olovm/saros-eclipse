@@ -19,9 +19,9 @@ fi
 echo "Container runtime will be "${CONTAINERRUNTIME}
 
 if [ ! $USER ]; then
-  	echo "You must specify the userName used when starting eclipse202303forsaros2"
+  	echo "You must specify the userName used when starting eclipse202303forsaros3"
 else
-cd eclipse202303forsaros2
+cd eclipse202303forsaros3
 ${CONTAINERRUNTIME} run --rm -ti --privileged  --ipc=host \
  --env="QT_X11_NO_MITSHM=1"\
  --env="NO_AT_BRIDGE=1"\
@@ -44,8 +44,8 @@ ${CONTAINERRUNTIME} run --rm -ti --privileged  --ipc=host \
  -e user=$USER\
  -e HOSTBASEDIR=$BASEDIR\
  --network=eclipseForSarosNet\
- --name eclipse202303forsaros2\
+ --name eclipse202303forsaros3\
  --network-alias=eclipse\
- eclipse202303forsaros2 $2
+ eclipse202303forsaros3 $2
  cd ../
 fi

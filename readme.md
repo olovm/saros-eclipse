@@ -81,7 +81,7 @@ Saros not working on later java > 11 </br>
 https://github.com/saros-project/saros/issues/1142</br>
 https://newbedev.com/how-to-run-eclipse-in-clean-mode-what-happens-if-we-do-so</br>
 
- docker exec  -it eclipse202303forsaros2 bash</br>
+ docker exec  -it eclipse202303forsaros3 bash</br>
  copy saros.core_0.2.0.jar (fixed one) from </br>
  cp /home/olov/workspace/saros-eclipse/docker/saros.core_0.2.0.jar /home/olov/.p2/pool/plugins/</br>
  nano /home/olov/eclipse/eclipseforsaros/eclipse.ini</br>
@@ -115,7 +115,7 @@ Given a Marketplace install URL (https://marketplace.eclipse.org/marketplace-cli
 # Gradle
 ## Note to self..
 enter docker:
-docker exec -it eclipse202303forsaros2 bash
+docker exec -it eclipse202303forsaros3 bash
 
 cd /home/yourUserName/workspace/saros
 

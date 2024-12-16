@@ -20,16 +20,16 @@ echo saros-eclipse branch: $ECLIPSEBRANCH
 
 
 if [ ! $USER ]; then
-  	echo you must specify the userName to be used when building eclipse202303forsaros2
+  	echo you must specify the userName to be used when building eclipse202303forsaros3
 elif [ ! $USERID ]; then
-	echo you must specify the userid to be used when building eclipse202303forsaros2, use: id -u youruserid 
+	echo you must specify the userid to be used when building eclipse202303forsaros3, use: id -u youruserid 
 elif [ ! $DOCKERGROUPID ] && [ ! -d ./eclipseForSaros ]; then
-	echo you must specify the dockergroupid to be used when building eclipse202303forsaros2, use: getent group docker 
+	echo you must specify the dockergroupid to be used when building eclipse202303forsaros3, use: getent group docker 
 else
-	if [ ! -d ./eclipse202303forsaros2 ]; then
+	if [ ! -d ./eclipse202303forsaros3 ]; then
 		./saros-eclipse/buildEclipseForSaros.sh $USER $USERID $DOCKERGROUPID $NOCACHE
 		./saros-eclipse/setupDirectoriesAndScriptsForEclipseForSaros.sh $USER
 		docker network create eclipseForSarosNet
 	fi
-	./eclipse202303forsaros2/startEclipseForSarosTempSetup.sh $USER $ECLIPSEBRANCH
+	./eclipse202303forsaros3/startEclipseForSarosTempSetup.sh $USER $ECLIPSEBRANCH
 fi
