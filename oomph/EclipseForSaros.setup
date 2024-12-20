@@ -689,8 +689,6 @@
           name="org.jetbrains.kotlin.feature.feature.group"/>
       <requirement
           name="org.jetbrains.kotlin.policy.feature.group"/>
-      <requirement
-          name="org.jetbrains.kotlin.weaving.feature.feature.group"/>
       <repository
           url="https://eclipse-uc.sonarlint.org"/>
       <repository
