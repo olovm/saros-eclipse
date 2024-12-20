@@ -32,6 +32,7 @@ ${CONTAINERRUNTIME} run --rm -ti --privileged  --ipc=host \
  -v /var/run/docker.sock:/var/run/docker.sock\
  -v /usr/lib64/dri:/usr/lib64/dri\
  -v /tmp/.X11-unix:/tmp/.X11-unix\
+ -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket\
  -v INSTALLDIR/workspace:/home/$USER/workspace\
  -v INSTALLDIR/eclipse:/home/$USER/eclipse\
  -v INSTALLDIR/.eclipse:/home/$USER/.eclipse\

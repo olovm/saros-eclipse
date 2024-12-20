@@ -32,6 +32,7 @@ ${CONTAINERRUNTIME} run --rm -ti --privileged --ipc=host\
  -e WAYLAND_DISPLAY=$WAYLAND_DISPLAY\
  -v $XDG_RUNTIME_DIR/$WAYLAND_DISPLAY:/tmp/$WAYLAND_DISPLAY\
  -v /var/run/docker.sock:/var/run/docker.sock\
+ -v /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket\
  -v /usr/lib64/dri:/usr/lib64/dri\
  -v /tmp/.X11-unix:/tmp/.X11-unix\
  -v INSTALLDIR/workspace:/home/$USER/workspace\
