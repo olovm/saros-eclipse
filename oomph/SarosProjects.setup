@@ -589,7 +589,7 @@
   <setupTask
       xsi:type="jdt:JRETask"
       version="JavaSE-11"
-      location="/opt/jdk-11.0.17+8"
+      location="/opt/jdk-11.0.25+9"
       name="JRE for JavaSE-11 temurin11"
       executionEnvironmentDefault="false">
     <jreLibrary
