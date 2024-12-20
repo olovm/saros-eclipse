@@ -52,6 +52,7 @@ RUN dnf clean all && \
   nodejs \
   bindfs \
   fuse \
+  dbus \
   npm -y && \
   dnf clean all
   
