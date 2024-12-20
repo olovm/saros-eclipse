@@ -28,6 +28,7 @@ chooseRepo(){
 	echo "where the saros projects have been cloned."
 	echo "1. https://github.com/saros-project/"
 	echo "2. https://github.com/olovm/"
+	echo "3. https://github.com/perebartrolisimo/"
 	echo "Choose 1, 2 or enter your own base url to clone as origin. (eg. https://github.com/olovm/)"
 	read -p "For origin, use? " userchoice
 	case "$userchoice" in
@@ -39,12 +40,17 @@ chooseRepo(){
 	        2)
 				echo "You choose: $userchoice 2"
 	            originRepo="https://github.com/olovm/"
-	            otherRepos="saros-project"
+	            otherRepos="saros-project perebartrolisimo"
+	            ;;
+	        3)
+				echo "You choose: $userchoice 3"
+	            originRepo="https://github.com/perebartrolisimo/"
+	            otherRepos="saros-project olovm"
 	            ;;
 	        *)
 				echo "You choose: $userchoice other"
 	            originRepo="$userchoice"
-	            otherRepos="saros-project olovm"
+	            otherRepos="saros-project olovm perebartrolisimo"
 	esac
 	
 	echo "Origin choosen as: $originRepo"
