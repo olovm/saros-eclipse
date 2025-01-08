@@ -44,7 +44,7 @@ clone Saros repositories, add other remotes to all of them and start the eclipse
 
  1. You need to use the advanced mode 
  
- 1. Browse for setup files for eclipse, /home/yourUserName/workspace/saros-eclipse/oomph/EclipseForSaros.setup (use the plussign to add)
+ 1. Browse for setup files for eclipse, /home/yourUserName/workspace/saros-eclipse/oomph/EclipseForSaros.setup (use the plussign to add) (use 2022-06)
  2. Java 17+ VM, set it to: /usr/lib/jvm/**java-17-openjdk**
  
  next step
@@ -76,6 +76,20 @@ You are now ready to do a first startup of the environment.
 
 
 ## Finishing up, your first startup of the environment
+
+### Setting Gradle version, 
+Right click on project saros choose prefrenses / Gradle
+set
+Specific Gradle version to 7.4.2
+java home to /usr/lib/jvm/java-17-openjdk
+JVM Arguments
+--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
+--add-opens java.base/java.util.concurrent=ALL-UNNAMED
+
+## to create new dropin release for eclipse
+
+
+
 </br>
 Saros not working on later java > 11 </br>
 https://github.com/saros-project/saros/issues/1142</br>
