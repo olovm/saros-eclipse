@@ -78,13 +78,13 @@ You are now ready to do a first startup of the environment.
 ## Finishing up, your first startup of the environment
 
 ### Setting Gradle version, 
-Right click on project saros choose prefrenses / Gradle
-set
-Specific Gradle version to 7.4.2
-java home to /usr/lib/jvm/java-17-openjdk
-JVM Arguments
---add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
---add-opens java.base/java.util.concurrent=ALL-UNNAMED
+Right click on project saros choose prefrenses / Gradle<br>
+set<br>
+Specific Gradle version to 7.4.2<br>
+java home to /usr/lib/jvm/java-17-openjdk<br>
+JVM Arguments<br>
+--add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED<br>
+--add-opens java.base/java.util.concurrent=ALL-UNNAMED<br>
 
 ## to create new dropin release for eclipse
 
