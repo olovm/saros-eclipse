@@ -124,9 +124,12 @@ show project structure:
 ./gradlew -q projects
 
 ./gradlew :saros.core:tasks
+
 ./gradlew :saros.core:clean
+
 ./gradlew :saros.core:build
 
-
+when you have updated dependencies to get them into eclipse, run this again, and refresh project
+./gradlew prepareEclipse
 
 
