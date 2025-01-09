@@ -78,11 +78,11 @@ You are now ready to do a first startup of the environment.
 Run:</br>
 `./eclipse202412forsaros1/startEclipseForSaros.sh`</br>
 
-### Open Gradle Tasks view / Setting Gradle version
-choose to import porject<br>
+### Open Gradle Tasks view
+choose to import project<br>
 Override workspace settings use:<br>
 Specific Gradle version to 7.4.2<br>
-java home to /usr/lib/jvm/java-17-openjdk<br>
+java home to `/usr/lib/jvm/java-17-openjdk`<br>
 JVM Arguments<br>
 --add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED<br>
 --add-opens java.base/java.util.concurrent=ALL-UNNAMED<br>
