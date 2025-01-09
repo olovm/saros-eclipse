@@ -42,30 +42,29 @@ When the container starts for the first time will it run the installation part o
 clone Saros repositories, add other remotes to all of them and start the eclipse installer (oomph). </br>
 **There are a few things that needs to be choosen in the installer:**
 
- 1. You need to use the advanced mode 
+You need to use the advanced mode 
  
- 1. Browse for setup files for eclipse, /home/yourUserName/workspace/saros-eclipse/oomph/EclipseForSaros.setup (use the plussign to add) (use 2022-06)
- 2. Java 17+ VM, set it to: /usr/lib/jvm/**java-17-openjdk**
+1. Browse for setup files for eclipse, /home/yourUserName/workspace/saros-eclipse/oomph/EclipseForSaros.setup (use the plussign to add) 
+2. use version 2024-12
+3. Java 21+ VM, set it to: /usr/lib/jvm/**java-23-openjdk**
  
- next step
- 
- 1. In next step browse for setup for projects, /home/yourUserName/workspace/saros-eclipse/oomph/SarosProjects.setup (use the plussign to add)
- 2. Make sure "Saros projects" are marked
+next step
+
+1. In next step browse for setup for projects, /home/yourUserName/workspace/saros-eclipse/oomph/SarosProjects.setup (use the plussign to add)
+2. Make sure "Saros projects" are marked
 
  next step
  
  1. Choose installation location: "Installed in the specified absolute folder location"
- 2. Fill in path for "Root install folder": set it to /home/yourUserName/eclipse
- 6. Fill in path for "Installation location": set it to /home/yourUserName/eclipse
+ 2. Fill in path for "Root install folder": set it to `/home/yourUserName/eclipse`
+ 6. Fill in path for "Installation location": set it to `/home/yourUserName/eclipse`
  5. Choose Workspace location rule: "Located in the absolute folder location"
- 6. Fill in path for "Workspace location": /home/yourUserName/workspace
- 7. Fill in path for "JRE 17 Location": /usr/lib/jvm/**java-17-openjdk**
+ 6. Fill in path for "Workspace location": `/home/yourUserName/workspace`
  
  next step
  
  finnish
  
- saros might not allow you to log in, if so, skipp that step and do it later
 <br>
 This should get you through the installer and will eventually start eclipse and do a first run to setup eclipse. 
 You can click on the spinning arrows, in the bottom of the screen to see what the setup does.
@@ -76,74 +75,95 @@ You are now ready to do a first startup of the environment.
 
 
 ## Finishing up, your first startup of the environment
+Run:</br>
+`./eclipse202412forsaros1/startEclipseForSaros.sh`</br>
 
-### Setting Gradle version, 
-Right click on project saros choose prefrenses / Gradle<br>
-set<br>
+### Open Gradle Tasks view / Setting Gradle version
+choose to import porject<br>
+Override workspace settings use:<br>
 Specific Gradle version to 7.4.2<br>
 java home to /usr/lib/jvm/java-17-openjdk<br>
 JVM Arguments<br>
 --add-exports jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED<br>
 --add-opens java.base/java.util.concurrent=ALL-UNNAMED<br>
 
+(you might have to restart eclipse to get all changes)
+
+If there are problems or when dependencies are changed:<br>
+enter the running docker, in a console:<br>
+`docker exec -it eclipse202412forsaros1 bash` <br>
+`cd /home/yourUserName/workspace/saros` <br>
+`./gradlew prepareEclipse` <br>
+
+refresh saros project in eclipse
+
 ## to create new dropin release for eclipse
+create a new Feature project by<br>
+File/New/Other...<br>
+Plug-in Development/Feature Project<br>
+Project name: saros_dropin<br>
+Finish (don't open the perspective)<br>
 
+copy files from saros/eclipse/feature (build.properties, feature.xml)<br>
+to the new project saros_dropin (replace the created files)<br>
 
+create the dropin<br>
+File/Export...<br>
+Plug-in Development/Deployable features<br>
+choose saros.feature(17.0.0)<br>
+choose output directory `saros_dropin/dropin`(create the folder)<br>
+finish<br>
 
-</br>
-Saros not working on later java > 11 </br>
-https://github.com/saros-project/saros/issues/1142</br>
-https://newbedev.com/how-to-run-eclipse-in-clean-mode-what-happens-if-we-do-so</br>
+if you get an error message and in the log find something similar to this:<br>
+\# Eclipse Compiler for Java(TM) v20241112-0530, 3.40.0, Copyright IBM Corp 2000, 2020. All rights reserved.
+Compliance level '17' is incompatible with target level '23'. A compliance level '23' or better is required
 
- docker exec  -it eclipse202412forsaros1 bash</br>
- copy saros.core_0.2.0.jar (fixed one) from </br>
- cp /home/olov/workspace/saros-eclipse/docker/saros.core_0.2.0.jar /home/olov/.p2/pool/plugins/</br>
- nano /home/olov/eclipse/eclipseforsaros/eclipse.ini</br>
-  
-add </br>
- -clean</br>
-to first row</br>
-restart eclipse</br>
+change <br>
+Window/Prefrences/Java/Compiler<br>
+Compiler compliance level: to 17<br>
 
-# Commiting to github using token
-## remove password 
+you can now copy the folders plugins and features from saros_dropin/dropin (the output folder from above)<br>
+to an eclipse/dropins/ folder and restart that eclipse to install Saros
+
+# Note to self..
+## Commiting to github using token
+### remove password 
  prefrences / security / secure storage / contents
  
 remove git from default secure storage
 
-## generate a github token
+### generate a github token
 as described here:
 
 https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-token
 
-## push to git with token
+### push to git with token
 username: your normal username
 password: your token
 
 
-### For adding marketplace to oomph installer (note to self)
+#### For adding marketplace to oomph installer (note to self)
 https://stackoverflow.com/questions/47582157/eclipse-marketplace-plug-ins-silent-install
 Given a Marketplace install URL (https://marketplace.eclipse.org/marketplace-client-intro?mpc_install={ID}), construct the API URL as https://marketplace.eclipse.org/node/{ID}/api/p. Retrieve the XML file from that URL and look for the repository URL in the updateURL tag, and the available features in the ius tag. You'll need to append .feature.group to each IU feature listed
 
 
-# Gradle
-## Note to self..
+## Gradle
+
 enter docker:
-docker exec -it eclipse202412forsaros1 bash
+`docker exec -it eclipse202412forsaros1 bash`
 
-cd /home/yourUserName/workspace/saros
+`cd /home/yourUserName/workspace/saros`
 
-show project structure:
+show project structure:<br>
+`./gradlew -q projects`
 
-./gradlew -q projects
+`./gradlew :saros.core:tasks`
 
-./gradlew :saros.core:tasks
+`./gradlew :saros.core:clean`
 
-./gradlew :saros.core:clean
+`./gradlew :saros.core:build`
 
-./gradlew :saros.core:build
-
-when you have updated dependencies to get them into eclipse, run this again, and refresh project
-./gradlew prepareEclipse
+when you have updated dependencies to get them into eclipse, run this again, and refresh project<br>
+`./gradlew prepareEclipse`
 
 
