@@ -70,8 +70,8 @@ RUN wget -q -O tmp.zip https://services.gradle.org/distributions/gradle-7.5.1-bi
 #ENV PATH="${PATH}:/opt/gradle-7.5.1/bin"
 RUN wget -q -O tmp.zip https://services.gradle.org/distributions/gradle-6.5.1-bin.zip && unzip tmp.zip -d /opt/ && rm tmp.zip -f
 ENV PATH="${PATH}:/opt/gradle-6.5.1/bin"
-RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-11-openjdk/bin/java 4
-RUN alternatives --set java /usr/lib/jvm/java-11-openjdk/bin/java
+RUN update-alternatives --install /usr/bin/java java /usr/lib/jvm/java-17-openjdk/bin/java 4
+RUN alternatives --set java /usr/lib/jvm/java-17-openjdk/bin/java
 
 RUN chown $user:$user /opt/ -R
 
