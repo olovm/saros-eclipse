@@ -79,7 +79,10 @@ Run:</br>
 `./eclipse202412forsaros1/startEclipseForSaros.sh`</br>
 
 ### Open Gradle Tasks view
+open Gradle Tasks view, `Ctrl + 3` choose Gradle Tasks<br>
 choose to import project<br>
+choose `/home/yourUserName/workspace/saros`<br>
+next<br>
 Override workspace settings use:<br>
 Specific Gradle version to 7.4.2<br>
 java home to `/usr/lib/jvm/java-17-openjdk`<br>
@@ -107,7 +110,7 @@ Finish (don't open the perspective)<br>
 copy files from saros/eclipse/feature (build.properties, feature.xml)<br>
 to the new project saros_dropin (replace the created files)<br>
 
-create the dropin<br>
+### create the dropin<br>
 File/Export...<br>
 Plug-in Development/Deployable features<br>
 choose saros.feature(17.0.0)<br>
@@ -122,8 +125,11 @@ change <br>
 Window/Prefrences/Java/Compiler<br>
 Compiler compliance level: to 17<br>
 
+Create the export again so that you do not get any errors reported.
+
+### Install Saros in other Eclipse
 you can now copy the folders plugins and features from saros_dropin/dropin (the output folder from above)<br>
-to an eclipse/dropins/ folder and restart that eclipse to install Saros
+to an eclipse/dropins/ folder and restart that eclipse to get Saros running
 
 # Note to self..
 ## Commiting to github using token
@@ -154,6 +160,8 @@ enter docker:
 
 `cd /home/yourUserName/workspace/saros`
 
+`./gradlew --version`
+
 show project structure:<br>
 `./gradlew -q projects`
 
@@ -162,6 +170,7 @@ show project structure:<br>
 `./gradlew :saros.core:clean`
 
 `./gradlew :saros.core:build`
+
 
 when you have updated dependencies to get them into eclipse, run this again, and refresh project<br>
 `./gradlew prepareEclipse`
